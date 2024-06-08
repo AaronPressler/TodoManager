@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\aaron\\Desktop\\Blazo_01\\AaronBlazor\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\AaronBlazor.bundle.scp.css",
+      "PackagePath": "staticwebassets\\AaronBlazor.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\aaron\\Desktop\\Blazo_01\\AaronBlazor\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\aaron\\Desktop\\Blazo_01\\AaronBlazor\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\aaron\\Desktop\\Blazo_01\\AaronBlazor\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\aaron\\Desktop\\Blazo_01\\AaronBlazor\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.AaronBlazor.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.AaronBlazor.props",
+      "PackagePath": "build\\AaronBlazor.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.AaronBlazor.props",
+      "PackagePath": "buildMultiTargeting\\AaronBlazor.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.AaronBlazor.props",
+      "PackagePath": "buildTransitive\\AaronBlazor.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,136 @@
+﻿@page "/todo"
+@using AaronBlazor.Components
+@using AaronBlazor;
+@rendermode InteractiveServer
+@inject AaronBlazor.TaskManager taskManager
+
+
+
+<h3>Todo</h3>
+
+@code {
+    private List<AaronBlazor.DoTask> TaskList = new();
+
+}
+
+<div>
+    <input @bind="newListTitle" placeholder="Add new ToDo List" />
+    <button @onclick="AddToDoList">Add ToDo List</button>
+</div>
+<ul>
+    @foreach (var list in taskManager.GetToDoLists())
+    {
+        <li>
+            <details>
+                <summary>@list.Title</summary>
+                <div>
+                    <input @bind="newTaskTitle" placeholder="Neue Aufgabe hinzufügen..." />
+                    <input @bind="newTaskDescription" placeholder="Neue Aufgabe hinzufügen..." />
+                    <input @bind="newTaskCategory" placeholder="Neue Aufgabe hinzufügen..." />
+                    <input type="date" @bind="newTaskExpiryDate" />
+                    <button @onclick="() => AddTaskToList(list)">Aufgabe hinzufügen</button>
+                </div>
+
+                <ul>
+                    @foreach (var task in list.TaskList)
+                    {
+                        <li>
+                            <input type="checkbox" @bind="task.IsCompleted" />
+                            <span>@task.Title</span> - @task.Description (@task.Category), fällig am @task.ExpiryDate.ToString()
+                        </li>
+                    }
+                </ul>
+            </details>
+        </li>
+    }
+</ul>
+
+<ul>
+    
+</ul>
+@code{
+    private string? newListTitle;
+    private string? newTaskTitle;
+    private string? newTaskDescription;
+    private string? newTaskCategory;
+    private DateTime? newTaskExpiryDate = (DateTime?)DateTime.Today;
+    private void Test()
+    {
+        taskManager.TestTask();
+    }
+
+    private void AddToDoList()
+    {
+        if(!string.IsNullOrWhiteSpace(newListTitle))
+            taskManager.AddToDoList(newListTitle);
+
+        newListTitle = string.Empty;
+
+    }
+
+    private void AddTaskToList(ToDoList list)
+    {
+        DoTask newTask = new DoTask(newTaskTitle, newTaskDescription, newTaskCategory, (DateTime?)newTaskExpiryDate, false);
+        taskManager.AddTaskToList(list, newTask);
+        newTaskTitle = string.Empty;
+
+           
+            
+        
+
+    }
+
+  
+}
+
+
+ 
+
+    
+
+
+<h3>
+    Tasks Open: @(taskManager.GetToDoLists().Sum(list => list.TaskList.Count(task => !task.IsCompleted)))
+</h3>
+
+
+<!-- 
+<ul>
+    @foreach(var task in TaskList)
+    {
+            <li>@task.Title</li>
+    }
+</ul>
+
+
+
+<input @bind="newtask" />
+<button @onclick="AddTask">Add new Task</button>
+
+@code {
+    private List<DoTask> tasks = new();
+    string newtask = "";
+
+    void AddTask()
+    {
+        if(!string.IsNullOrWhiteSpace(newtask))
+        {
+            tasks.Add(new DoTask(newtask));
+            newtask = string.Empty;
+        }
+    }
+}
+
+<ul>
+    @foreach(var task in tasks)
+    {
+        <li>
+            <input type="checkbox" @bind="task.IsCompleted" />
+            <input @bind="task.Title"/>
+        </li>
+    }
+</ul>
+-->
+
+
+
